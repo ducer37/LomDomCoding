@@ -1,15 +1,22 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 public class Cal {
-    public static void main(String[] args){
-        double s1, s2;
-        Scanner sc = new Scanner(System.in);
-        s1 = sc.nextDouble();
-        s2 = sc.nextDouble();
-        System.out.println(s1 + s2);
-        System.out.println(s1 - s2);
-        System.out.println(s1 * s2);
-        if(s1 % s2 == 0) System.out.println("Yes");
-        else System.out.println("No");
-        sc.close();
+    public static void main(String[] args) {
+        double x1 = Double.parseDouble(JOptionPane.showInputDialog("Enter the first number:"));
+        double x2 = Double.parseDouble(JOptionPane.showInputDialog("Enter the second number:"));
+        String notification = "Input: " + x1 + " and " + x2;
+        double sum = x1 + x2;
+        notification += "\nSum: " + sum;
+        double dif = x1 - x2;
+        notification += "\nDifference: " + dif;
+        double pro = x1 * x2;
+        notification += "\nProduct: " + pro;
+        if (x2 == 0) {
+            JOptionPane.showMessageDialog(null, "Cannot divide by zero");
+        } else {
+            double quo = x1 / x2;
+            notification += "\nQuotient: " + quo;
+        }
+        JOptionPane.showMessageDialog(null, notification);
     }
 }
